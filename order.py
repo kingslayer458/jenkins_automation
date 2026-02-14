@@ -6,9 +6,12 @@ from requests.auth import HTTPBasicAuth
 username = "admin"
 password = "admin123"
 
-url1 = "http://127.0.0.1:8000/url1/product"
-url2 = "http://127.0.0.1:8000/url2/buyer"
-url3 = "http://127.0.0.1:8000/url3/order"
+# url1 = "http://127.0.0.1:8000/url1/product"
+# url2 = "http://127.0.0.1:8000/url2/buyer"
+# url3 = "http://127.0.0.1:8000/url3/order"
+url1 = "http://host.docker.internal:8000/url1/product"
+url2 = "http://host.docker.internal:8000/url2/buyer"
+url3 = "http://host.docker.internal:8000/url3/order"
 
 # 🔹 Read JSON input from Jenkins parameters
 payload = json.loads(os.environ["PAYLOAD1"])
