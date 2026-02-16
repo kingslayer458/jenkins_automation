@@ -1,0 +1,2 @@
+user=king
+pass=coldywar

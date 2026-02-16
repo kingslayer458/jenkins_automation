@@ -1,0 +1,10 @@
+sshpass -p "$VM_PASS" ssh -o StrictHostKeyChecking=no $VM_USER@4.186.28.69 "
+set -e
+
+echo 'Jenkins SSH OK'
+hostname
+whoami
+
+cd speed-test
+./start.sh
+"
