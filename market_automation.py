@@ -40,12 +40,12 @@ stored2= re2.json()
 #extracting inputs
 buyer_id=stored2["buyer_id"]
 
-print("\n 1st payload output")
-print(json.dumps(stored1,indent=4))
+# print("\n 1st payload output")
+# print(json.dumps(stored1,indent=4))
 
 
-print("\n 2st payload output")
-print(json.dumps(stored2,indent=4))
+# print("\n 2st payload output")
+# print(json.dumps(stored2,indent=4))
 
 #mapping
 
