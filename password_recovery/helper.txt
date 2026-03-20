@@ -1,0 +1,7 @@
+sed -i 's/\r$//' script.sh removes /r
+
+docker cp disable-auth.sh jenkins:/var/jenkins_home/
+docker cp enable-auth.sh jenkins:/var/jenkins_home/
+
+docker exec -it jenkins sh /var/jenkins_home/disable-auth.sh
+docker exec -it jenkins sh /var/jenkins_home/enable-auth.sh
