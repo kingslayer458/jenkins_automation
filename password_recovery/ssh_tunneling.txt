@@ -1,0 +1,44 @@
+ssh -i example.pem -L 9090:localhost:8080 ubuntu@ip
+
+
+for mulitple ports
+
+ssh -L 9090:localhost:8080 \
+    -L 3000:localhost:3000 \
+    -L 5000:localhost:5000 \
+    ubuntu@SERVER_IP
+
+~/.ssh/config
+
+Host myserver
+    HostName SERVER_IP
+    User ubuntu
+    IdentityFile key.pem
+    LocalForward 9090 localhost:8080
+    LocalForward 3000 localhost:3000
+
+ssh my server 
+
+
+
+reverse tunneling
+
+Type	Direction	Use case
+SSH Tunnel (-L)	You → Server	Access Jenkins securely
+Reverse Tunnel (-R)	Server → You	Expose your local app
+
+ssh -R 9000:localhost:3000 ubuntu@SERVER_IP
+
+ssh -R 9000:localhost:3000 \
+    -R 9001:localhost:5000 \
+    ubuntu@SERVER_IP
+
+combination of both
+
+ssh -L 9090:localhost:8080 \
+    -R 9000:localhost:3000 \
+    ubuntu@SERVER_IP
+
+sudo nano /etc/ssh/sshd_config
+
+gateway to no to yes
