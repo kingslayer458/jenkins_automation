@@ -1,5 +1,16 @@
+GUIDE
 
-docker compose up -d 
+Permissions:  Zone → DNS → Edit
+Zone Resources: Include → Specific zone → YOUR-DOMAIN
+
+sudo apt install -y certbot python3-certbot-dns-cloudflare
+
+certbot --version
+sudo chmod 600 /etc/letsencrypt/cloudflare.ini
+
+TOKEN=$(sudo awk '{print $3}' /etc/letsencrypt/cloudflare.ini)
+curl -s "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+  -H "Authorization: Bearer $TOKEN" | python3 -m json.tool
 
 sudo bash -c 'echo "dns_cloudflare_api_token = enter your token" > /etc/letsencrypt/cloudflare.ini'
 
@@ -13,3 +24,5 @@ curl icanhazip.com
 
 cloudflare (block) rule
 (http.host eq "domain" and ip.src ne <0.0.0.0>)
+
+docker compose up -d 
