@@ -33,4 +33,5 @@ services:
 
 volumes:
   jenkins_data:
-   external:true
+   external: true
+   name: jenkins_data
