@@ -1,0 +1,10 @@
+
+docker compose up -d 
+
+sudo bash -c 'echo "dns_cloudflare_api_token = enter your token" > /etc/letsencrypt/cloudflare.ini'
+
+sudo certbot certonly --dns-cloudflare \
+  --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini \
+  --dns-cloudflare-propagation-seconds 10 \
+  -d mjenkins.kingcloud.live \
+  --agree-tos --email mk458557@gmail.com --no-eff-email
