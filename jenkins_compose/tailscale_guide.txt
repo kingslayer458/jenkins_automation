@@ -1,0 +1,12 @@
+curl -fsSL https://tailscale.com/install.sh | sh
+
+
+sudo tailscale down
+sudo tailscale up
+sudo tailscale status
+tailscale ip
+
+
+
+sudo systemctl enable --now tailscaled
+sudo systemctl status tailscaled
