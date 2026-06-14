@@ -1,0 +1,21 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+          cpus: "1.5"
+    environment:
+      - JAVA_OPTS=-Xms512m -Xmx2048m -XX:+UseG1GC
+    volumes:
+      - jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+volumes:
+  jenkins_data:
